@@ -32,17 +32,28 @@ class Chatbot extends JFrame {
 		f.getContentPane().setBackground(Color.cyan);
 		f.setTitle("ChatBot");
 		f.add(ca);
-		f.add(cd);
-		f.add(b);
-		b.add(l);
+		f.add(cf);
 		ca.setSize(300,310);
-		ca.setLocation(1,1);
+		ca.setLocation(1, 1);
 		ca.setBackground(Color.BLACK);
+		cf.setSize(300,20);
+		cf.setLocation(1,320);
+		f.add(b);
+		l.setText("SEND");
+		b.add(l);
 		b.setSize(400,20);
+		b.setLocation(300,320);
+        
+        b.addActionListener( new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+            
+        });
 
 	}
 
 }
+
 
 public class ChatBotAyudaEmocional {
 
