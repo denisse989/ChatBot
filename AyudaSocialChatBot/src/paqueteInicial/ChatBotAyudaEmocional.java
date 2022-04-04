@@ -2,8 +2,9 @@ package paqueteInicial;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.desktop.ScreenSleepEvent;
-import java.awt.desktop.SystemSleepEvent;
+import java.awt.ScrollPane;
+//import java.awt.desktop.ScreenSleepEvent;
+//import java.awt.desktop.SystemSleepEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -20,7 +22,9 @@ class Chatbot extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private JTextArea ca = new JTextArea();
+	private JScrollPane sc=new JScrollPane(ca);
 	private JTextField cf = new JTextField();
 	private JButton b = new JButton();
 	private JLabel l = new JLabel();
@@ -31,7 +35,7 @@ class Chatbot extends JFrame {
 
 	Chatbot() {
 		
-		JFrame f=new JFram ();
+		JFrame f=new JFrame ();
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setVisible(true);
 		f.setResizable(false);
@@ -55,7 +59,6 @@ class Chatbot extends JFrame {
 		ca.append("Hello there" + "\n" + "	I'm Feelmax! your emotional assistant ;)" + "\n" + "\n"
 				+ "[NOTE: allways write in lowercase]" + "\n");
 		ca.append("\n");
-//		ca.setFont(new Font("Arial Black", Font.BOLD, 12)); //change font and size
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -178,14 +181,18 @@ class Chatbot extends JFrame {
 
 	}
 
-	
+	public void closeWindow() { 
+		System.exit(0); // stop program
+		dispose(); // close window
+		setVisible(false); // hide window
+	}
 
 	public void replyMeth(String s) { // Reply Method
+		
 		ca.append("ChatBot-->" + s + "\n");
 	}
 
 }
-
 
 
 public class ChatBotAyudaEmocional {
