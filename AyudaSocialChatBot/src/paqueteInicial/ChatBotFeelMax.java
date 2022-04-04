@@ -152,14 +152,14 @@ public class ChatBotFeelMax extends JFrame {
 	   goodfeelings.add("happy");
 	   
 	   tipsForTheDay.add("Write down your thoughts when you feel stressed or anxious");
-	   tipsForTheDay.add("Give yourself fewer choices when you can’t make the decision");
+	   tipsForTheDay.add("Give yourself fewer choices when you canï¿½t make the decision");
 	   tipsForTheDay.add("Smile to improve your day");
 	   tipsForTheDay.add("Channelize your brain with thoughts of what you want to become. And you will, eventually.");
 	   tipsForTheDay.add("Treasure the little things in your life");
 	   
 	   
 	   phrasesForTheDay.add("The secret of getting ahead is getting started");
-	   phrasesForTheDay.add("You don’t have to be great to start, but you have to start to be great");
+	   phrasesForTheDay.add("You donï¿½t have to be great to start, but you have to start to be great");
 	   phrasesForTheDay.add("I believe that the only courage anybody ever needs is the courage to follow your dreams");
 	   phrasesForTheDay.add("All our dreams will come true, if we have the courage to pursue them");
 	   phrasesForTheDay.add("Imagine your life is perfect in every respect; what would it look like?");
@@ -270,10 +270,15 @@ public class ChatBotFeelMax extends JFrame {
 				replyMeth("Let's make you laugh ;)");
 				replyMeth("Did you hear about  the claustrophobic astronaut?");
 				replyMeth("He just needed a little space!");
+				vent= false;
 			} else {
 				replyMeth("Ok!");
 			}
 			
+		} else if (text.contains("no")){
+			if (lastReply.equals("Sorry about that, Do you wanna talk about it?")){
+				replyMeth("Ok, I will respect your feelings");
+			}
 		}
 		else if (text.equals("") && !vent){
 			replyMeth("You didn't say anything" + "\n" + "	It's everything ok?");
@@ -296,7 +301,7 @@ public class ChatBotFeelMax extends JFrame {
 								break;
 							} case MEETCREATORS:{
 								lastReply = "Well, my creators are:" + "\n" + "	- Denisse Baldivieso" + "\n"
-										+ "	- Llubitza Linares" + "\n" + "	- Nicole Góngora" + "\n" + "	- Benjamin Soto"
+										+ "	- Llubitza Linares" + "\n" + "	- Nicole Gï¿½ngora" + "\n" + "	- Benjamin Soto"
 										+ "\n" + "	- Ricardo Valencia";
 								lastreplied=true;
 								break;
