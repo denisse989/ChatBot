@@ -40,7 +40,7 @@ class Chatbot extends JFrame {
 		tipsForTheDay.add("Treasure the little things in your life");
 
 		phrasesForTheDay.add("The secret of getting ahead is getting started");
-		phrasesForTheDay.add("You don�t have to be great to start, but you have to start to be great");
+		phrasesForTheDay.add("You don't have to be great to start, but you have to start to be great");
 		phrasesForTheDay.add("I believe that the only courage anybody ever needs is the courage to follow your dreams");
 		phrasesForTheDay.add("All our dreams will come true, if we have the courage to pursue them");
 		phrasesForTheDay.add("Imagine your life is perfect in every respect; what would it look like?");
@@ -63,7 +63,9 @@ class Chatbot extends JFrame {
 	boolean afirmative = false;
 
 	Chatbot() {
-
+		
+		//TODO AGREGAR SCROLL BAR E INTERFAZ BONITA
+		
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setVisible(true);
@@ -90,7 +92,6 @@ class Chatbot extends JFrame {
 		ca.append("\n");
 //		ca.setFont(new Font("Arial Black", Font.BOLD, 12)); //change font and size
 
-		
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				initializeIntents();
@@ -121,7 +122,8 @@ class Chatbot extends JFrame {
 						replyMeth("I have no gender, I'm a bot!");
 
 					} else if (text.contains("im") && !text.contains("sad") && !text.contains("blue")
-							&& !text.contains("happy") && !text.contains("down")) {
+							&& !text.contains("happy") && !text.contains("down") && !text.contains("ok")
+							&& !text.contains("good")) {
 						replyMeth("Nice to meet you "
 								+ Arrays.toString(text.split("im")).substring(4,
 										Arrays.toString(text.split("im")).length() - 1)
@@ -151,7 +153,17 @@ class Chatbot extends JFrame {
 						replyMeth("Sorry hear that, Do you wanna talk about it?");
 						System.out.println(lastReply);
 
-					} else if (text.equals("yes") || text.equals("ok")) {
+					} else if (text.contains("i feel well") || text.contains("im feeling good")
+							|| text.contains("i feel great") || text.contains("im feeling great")
+							|| text.contains("im feeling amazing") || text.contains("im ok") || text.contains("im good")
+							|| text.contains("i feel very well") || text.contains("i feel so well")) {
+
+						lastReply = "I'm glad you feel like that! :D" + "\n" + "This is one of my advices for today: "
+								+ "\n" + tipsForTheDay.get(new Random().nextInt(tipsForTheDay.size() - 1) + 0);
+						replyMeth(lastReply);
+
+					} else if (text.equals("yes") || text.equals("ok") || text.equals("yeah") || text.equals("yeh")
+							|| text.equals("yep")) {
 						if (lastReply.equals("Sorry hear that, Do you wanna talk about it?")) {
 							replyMeth("Ok, let's vent!" + "\n" + "Tell me about your problem" + "\n"
 									+ "	I'm all ears! ;)");
