@@ -2,9 +2,8 @@ package paqueteInicial;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.ScrollPane;
-//import java.awt.desktop.ScreenSleepEvent;
-//import java.awt.desktop.SystemSleepEvent;
+import java.awt.desktop.ScreenSleepEvent;
+import java.awt.desktop.SystemSleepEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -33,32 +32,35 @@ class Chatbot extends JFrame {
 	boolean vent = false;
 	boolean afirmative = false;
 
+
 	Chatbot() {
 		
-		JFrame f=new JFrame ();
+
+		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setVisible(true);
 		f.setResizable(false);
 		f.setLayout(null);
-		f.setSize(400,400);
+		f.setSize(400, 400);
 		f.getContentPane().setBackground(Color.cyan);
-		f.setTitle("ChatBot");
+		f.setTitle("Feelmax");
 		f.add(ca);
 		f.add(cf);
-		ca.setSize(300,310);
+		ca.setSize(400, 310);
 		ca.setLocation(1, 1);
 		ca.setBackground(Color.BLACK);
-		cf.setSize(300,20);
-		cf.setLocation(1,320);
+		cf.setSize(300, 20);
+		cf.setLocation(1, 320);
 		f.add(b);
 		l.setText("SEND");
 		b.add(l);
-		b.setSize(400,20);
-		b.setLocation(300,320);
+		b.setSize(400, 20);
+		b.setLocation(300, 320);
 		ca.setForeground(Color.GREEN);
 		ca.append("Hello there" + "\n" + "	I'm Feelmax! your emotional assistant ;)" + "\n" + "\n"
 				+ "[NOTE: allways write in lowercase]" + "\n");
 		ca.append("\n");
+//		ca.setFont(new Font("Arial Black", Font.BOLD, 12)); //change font and size
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -99,10 +101,10 @@ class Chatbot extends JFrame {
 
 					} else if (text.contains("who created you?") || text.contains("who created you")) {
 						replyMeth("Well, my creators are:" + "\n" + "	- Denisse Baldivieso" + "\n"
-								+ "	- Llubitza Linares" + "\n" + "	- Nicole Góngora" + "\n" + "	- Benjamin Soto"
+								+ "	- Llubitza Linares" + "\n" + "	- Nicole Gï¿½ngora" + "\n" + "	- Benjamin Soto"
 								+ "\n" + "	- Ricardo Valencia");
 						lastReply = "Well, my creators are:" + "\n" + "	- Denisse Baldivieso" + "\n"
-								+ "	- Llubitza Linares" + "\n" + "	- Nicole Góngora" + "\n" + "	- Benjamin Soto"
+								+ "	- Llubitza Linares" + "\n" + "	- Nicole Gï¿½ngora" + "\n" + "	- Benjamin Soto"
 								+ "\n" + "	- Ricardo Valencia";
 
 					} else if (text.contains("bye") || text.contains("good bye")) {
@@ -134,12 +136,12 @@ class Chatbot extends JFrame {
 						replyMeth("Ok!" + "\n" + "	NOC! NOC!");
 						lastReply = "NOC! NOC!";
 
+
 					} else if (text.contains("jaja")) {
 						replyMeth("Funny! ;P " + "\n" + "	jajaja");
 					} else if (text.contains("who is") || text.contains("who is?")) {
 						if (lastReply.equals("NOC! NOC!")) {
 							replyMeth("Ach");
-							lastReply = "Ach";
 						} else
 							replyMeth("Who is who?");
 
@@ -181,24 +183,23 @@ class Chatbot extends JFrame {
 
 	}
 
-	public void closeWindow() { 
+	public void closeWindow() { // TODO doesn't close the program :c
 		System.exit(0); // stop program
 		dispose(); // close window
 		setVisible(false); // hide window
 	}
 
 	public void replyMeth(String s) { // Reply Method
-		
 		ca.append("ChatBot-->" + s + "\n");
 	}
 
 }
 
+public class ChatBotAyudaEmocional { // Driver Class
 
-public class ChatBotAyudaEmocional {
+	public static void main(String[] args) { // main class
 
-	public static void main(String[] args) {
-		new Chatbot();
+		new Chatbot(); // instantiation
 	}
 
 }
