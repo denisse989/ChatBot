@@ -35,8 +35,6 @@ import java.util.Random;
 import javax.swing.JTextPane;
 
 public class ChatBotFeelMax extends JFrame {
-
-	
 	
 	enum IntentChat {
 	    GREETING,
@@ -278,6 +276,9 @@ public class ChatBotFeelMax extends JFrame {
 		} else if (text.contains("no")){
 			if (lastReply.equals("Sorry about that, Do you wanna talk about it?")){
 				replyMeth("Ok, I will respect your feelings");
+			}else if (lastReply.contains("Is there anything I can do for you?")){
+				replyMeth("Ok, I will let you get better");
+				vent=false;
 			}
 		}
 		else if (text.equals("") && !vent){
