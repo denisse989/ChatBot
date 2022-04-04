@@ -5,7 +5,7 @@ FeelMax Chatbot, un Chatbot de ayuda emocional creado en JAVA y WindowBuilder.
 
 ![Logo](AyudaSocialChatBot/feelMax.png?raw=true "Title")
 
-## Tecnologias Usadas
+## Tecnologías Usadas
 * Java: JDK 18 
 * [WindowBuilder](https://www.eclipse.org/windowbuilder/): Version 1.9.8
 * Swing
@@ -14,8 +14,7 @@ FeelMax Chatbot, un Chatbot de ayuda emocional creado en JAVA y WindowBuilder.
 ## Descripcion
 
 
-FeelMax Chatbot, es un Chatbot y asistente de ayuda emocional creado en JAVA y WindowBuilder. FeelMax te pregunta tu estado de ánimo, te permite contarle tus problemas y esta diseñado para dar apoyo a quien lo necesite. Cuenta con una interfaz gráfica, chistes, y puede aprender el nombre del usuario.
-FeelMax se propone a ser un asistente amigable y responsivo que esta ahi para ti.
+FeelMax Chatbot, es un Chatbot y asistente de ayuda emocional creado en JAVA y WindowBuilder. FeelMax te pregunta tu estado de ánimo, te permite contarle tus problemas y esta diseñado para dar apoyo a quien lo necesite. Cuenta con una interfaz gráfica, chistes, y puede aprender el nombre del usuario. FeelMax se propone a ser un asistente amigable y responsivo que esta ahí para ti.
 
 ## Uso
 
@@ -28,7 +27,7 @@ $ javac ChatBotFeelMax.java
 $ java ChatBotFeelMax.java
 
 ```
-Una vez que FeelMax este corriendo en su ventana, simplemente envia tus preguntas y Feelmax se asegurara de responderlas!
+Una vez que FeelMax este corriendo en su ventana, simplemente envía tus preguntas y Feelmax se asegurara de responderlas!
 
 ![Ejemplo](AyudaSocialChatBot/interfaceExample.jpeg?raw=true "Title")
 
