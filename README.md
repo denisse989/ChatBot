@@ -1,5 +1,6 @@
 # FeelMax Chatbot
-Por Denise Baldivieso, Nicole Góngora, Llubitza Linares, Benjamin Soto e Ignacio Valencia
+Por Denise Baldivieso, Nicole Góngora, Llubitza Linares, Benjamin Soto e Ignacio Valencia.
+
 FeelMax Chatbot, un Chatbot de ayuda emocional creado en JAVA y WindowBuilder.
 
 
