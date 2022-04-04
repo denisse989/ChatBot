@@ -63,9 +63,9 @@ class Chatbot extends JFrame {
 	boolean afirmative = false;
 
 	Chatbot() {
-		
-		//TODO AGREGAR SCROLL BAR E INTERFAZ BONITA
-		
+
+		// TODO AGREGAR SCROLL BAR E INTERFAZ BONITA
+
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		f.setVisible(true);
@@ -188,6 +188,11 @@ class Chatbot extends JFrame {
 						} else
 							replyMeth("Who is who?");
 
+					} else if (text.contains("hug")) {
+						lastReply = "Here, have a hug from Feelmax!";
+						replyMeth(lastReply);
+						callframe();
+
 					} else if (text.contains("ach who") || text.contains("ach who?")) {
 						if (lastReply.contains("Ach"))
 							replyMeth("Bless you! ;P");
@@ -243,6 +248,10 @@ class Chatbot extends JFrame {
 
 	public void replyMeth(String s) { // Reply Method
 		ca.append("ChatBot-->" + s + "\n");
+	}
+
+	public void callframe() {
+		new HugFrame();
 	}
 
 }
