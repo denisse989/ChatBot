@@ -2,20 +2,49 @@ package paqueteInicial;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.TextField;
 import java.awt.desktop.ScreenSleepEvent;
 import java.awt.desktop.SystemSleepEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.border.MatteBorder;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
 class Chatbot extends JFrame {
+
+	private static List<String> phrasesForTheDay = new ArrayList<String>();
+	private static List<String> tipsForTheDay = new ArrayList<String>();
+
+	protected static void initializeIntents() {
+		tipsForTheDay.add("Write down your thoughts when you feel stressed or anxious");
+		tipsForTheDay.add("Give yourself fewer choices when you can�t make the decision");
+		tipsForTheDay.add("Smile to improve your day");
+		tipsForTheDay.add("Channelize your brain with thoughts of what you want to become. And you will, eventually.");
+		tipsForTheDay.add("Treasure the little things in your life");
+
+		phrasesForTheDay.add("The secret of getting ahead is getting started");
+		phrasesForTheDay.add("You don�t have to be great to start, but you have to start to be great");
+		phrasesForTheDay.add("I believe that the only courage anybody ever needs is the courage to follow your dreams");
+		phrasesForTheDay.add("All our dreams will come true, if we have the courage to pursue them");
+		phrasesForTheDay.add("Imagine your life is perfect in every respect; what would it look like?");
+	}
 
 	/**
 	 * 
@@ -23,18 +52,17 @@ class Chatbot extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JTextArea ca = new JTextArea();
-	private JScrollPane sc=new JScrollPane(ca);
+	private JScrollPane sc = new JScrollPane(ca);
 	private JTextField cf = new JTextField();
 	private JButton b = new JButton();
 	private JLabel l = new JLabel();
+	private JPanel contentPane;
 	String lastReply = "";
 	String username = "";
 	boolean vent = false;
 	boolean afirmative = false;
 
-
 	Chatbot() {
-		
 
 		JFrame f = new JFrame();
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,9 +89,11 @@ class Chatbot extends JFrame {
 				+ "[NOTE: allways write in lowercase]" + "\n");
 		ca.append("\n");
 //		ca.setFont(new Font("Arial Black", Font.BOLD, 12)); //change font and size
+
+		
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				initializeIntents();
 				if (e.getSource() == b) { // Message sents on Click button
 
 					String text = cf.getText().toLowerCase();
@@ -79,7 +109,8 @@ class Chatbot extends JFrame {
 						lastReply = "I'm Good :D.Thankyou for asking";
 						replyMeth("I'm Good :D.Thankyou for asking");
 
-					} else if (text.contains("what is your name") || text.contains("what is your name?")) {
+					} else if (text.contains("what is your name") || text.contains("what is your name?")
+							|| text.contains("who are you")) {
 						lastReply = "I'm your emotional assistant Feelmax!";
 						replyMeth("I'm your emotional assistant Feelmax!");
 
@@ -136,12 +167,12 @@ class Chatbot extends JFrame {
 						replyMeth("Ok!" + "\n" + "	NOC! NOC!");
 						lastReply = "NOC! NOC!";
 
-
 					} else if (text.contains("jaja")) {
 						replyMeth("Funny! ;P " + "\n" + "	jajaja");
 					} else if (text.contains("who is") || text.contains("who is?")) {
 						if (lastReply.equals("NOC! NOC!")) {
 							replyMeth("Ach");
+							lastReply = "Ach";
 						} else
 							replyMeth("Who is who?");
 
@@ -149,7 +180,7 @@ class Chatbot extends JFrame {
 						if (lastReply.contains("Ach"))
 							replyMeth("Bless you! ;P");
 						else
-							replyMeth("I Can't Understand," + "\n" + " Can you change the words?");
+							replyMeth("I Canxdt Understand," + "\n" + " Can you change the words?");
 
 					} else if (text.equals("")) {
 						replyMeth("You didn't say anything" + "\n" + "	It's everything ok?");
@@ -165,6 +196,15 @@ class Chatbot extends JFrame {
 							replyMeth("You didn't tell me your name :(");
 						else
 							replyMeth("You are " + username + " as I remember ;)");
+					} else if (text.contains("quote") || text.contains("famous word")) {
+						lastReply = "This is a famous quote I want to share with you: " + "\n"
+								+ phrasesForTheDay.get((int) Math.floor(Math.random() * (5 - 0 + 1) + 0));
+						replyMeth(lastReply);
+
+					} else if (text.contains("advice") || text.contains("tips") || text.contains("to do")) {
+						lastReply = "This is one of my advices for today: " + "\n"
+								+ tipsForTheDay.get(new Random().nextInt(tipsForTheDay.size() - 1) + 0);
+						replyMeth(lastReply);
 					} else {
 
 						if (vent) {
